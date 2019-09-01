@@ -12,12 +12,11 @@ total_score_path = ".Fz\\(36px\\).Fw\\(600\\).D\\(ib\\).Mend\\(5px\\)"
 total_percentile_path = ".Bdstarts\\(s\\).Bdstartw\\(0\\.5px\\).Pstart\\(10px\\).Bdc\\(\\$c-fuji-grey-c\\).Fz\\(12px\\).smartphone_Fz\\(10px\\).smartphone_Bd\\(n\\).Fw\\(500\\)"
 
 # <---- IEX DATA ---->
-iex_url = "https://sandbox.iexapis.com/stable/ref-data/symbols?filter=symbol&token=#{ENV['TEST_API_KEY']}"
+iex_url = "#{ENV['S3_TEST_API_URL']}/ref-data/symbols?filter=symbol&token=#{ENV['S3_TEST_API_KEY']}"
 uri = URI(iex_url)
 response = Net::HTTP.get(uri)
 tickers = JSON.parse(response)
 tickers = tickers
-puts "#{tickers}"
 
 # <---- CREATE STOCKS DB----> 
 percent_complete = 0

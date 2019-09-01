@@ -17,6 +17,7 @@ uri = URI(iex_url)
 response = Net::HTTP.get(uri)
 tickers = JSON.parse(response)
 tickers = tickers
+puts "#{tickers}"
 
 # <---- CREATE STOCKS DB----> 
 percent_complete = 0

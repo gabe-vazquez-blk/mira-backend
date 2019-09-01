@@ -3,7 +3,7 @@ require 'open-uri'
 require 'net/http'
 require 'json'
 require 'dotenv/load'
-require 'byebug'
+
 
 # <---- Paths ---->
 score_path = ".D\\(ib\\).Fz\\(23px\\).smartphone_Fz\\(22px\\).Fw\\(600\\)"
@@ -18,7 +18,7 @@ uri = URI(iex_url)
 response = Net::HTTP.get(uri)
 tickers = JSON.parse(response)
 tickers = tickers[3464..-1]
-byebug
+
 # <---- CREATE STOCKS DB----> 
 percent_complete = 39.38
 tickers.each do |ticker|

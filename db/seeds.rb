@@ -3,7 +3,6 @@ require 'open-uri'
 require 'net/http'
 require 'json'
 require 'dotenv/load'
-require 'byebug'
 
 # <---- Paths ---->
 score_path = ".D\\(ib\\).Fz\\(23px\\).smartphone_Fz\\(22px\\).Fw\\(600\\)"
@@ -15,7 +14,6 @@ total_percentile_path = ".Bdstarts\\(s\\).Bdstartw\\(0\\.5px\\).Pstart\\(10px\\)
 # <---- IEX DATA ---->
 iex_url = "https://sandbox.iexapis.com/stable/ref-data/symbols?filter=symbol&token=#{ENV['TEST_API_KEY']}"
 uri = URI(iex_url)
-byebug
 response = Net::HTTP.get(uri)
 tickers = JSON.parse(response)
 tickers = tickers

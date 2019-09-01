@@ -17,10 +17,11 @@ iex_url = "#{ENV['S3_TEST_API_URL']}/ref-data/symbols?filter=symbol&token=#{ENV[
 uri = URI(iex_url)
 response = Net::HTTP.get(uri)
 tickers = JSON.parse(response)
-tickers = tickers[3464..-1]
+tickers = tickers[6725..-1]
 
 # <---- CREATE STOCKS DB----> 
-percent_complete = 39.38
+percent_complete = 76.44
+ticker_number = 6725
 tickers.each do |ticker|
   ticker.each do |symbol, ticker|
     if !ticker.include?("^")
@@ -68,7 +69,8 @@ tickers.each do |ticker|
       end
     end
     percent_complete += 0.011349449
-    puts "#{(percent_complete).round(2)}%"
+    ticker_number += 1
+    puts "#{ticker_number}. #{ticker}: #{(percent_complete).round(2)}% complete..."
   end
 end
 

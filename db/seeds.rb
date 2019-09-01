@@ -21,6 +21,7 @@ tickers = tickers[3464, -1]
 # <---- CREATE STOCKS DB----> 
 percent_complete = 39.38
 tickers.each do |ticker|
+  puts "#{ticker}"
   ticker.each do |symbol, ticker|
     if !ticker.include?("^")
       doc = Nokogiri::HTML(open("https://finance.yahoo.com/quote/#{ticker}/sustainability"))

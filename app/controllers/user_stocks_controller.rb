@@ -1,7 +1,7 @@
 class UserStocksController < ApplicationController
 
   def index
-   user_stocks = UserStock.all 
+    user_stocks = UserStock.all 
     render json: user_stocks
   end 
 
@@ -17,6 +17,9 @@ class UserStocksController < ApplicationController
   def delete
     user_stock = UserStock.find_by({user_id: session_user.id , stock_id:params[:stock_id]})
     user_stock.destroy
+
+    user_stocks = UserStock.all 
+    render json: user_stocks
   end
 
 end

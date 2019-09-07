@@ -18,7 +18,7 @@ class UserStocksController < ApplicationController
     user_stock = UserStock.find_by({user_id: session_user.id , stock_id:params[:stock_id]})
     user_stock.destroy
 
-    user_stocks = UserStock.all 
+    user_stocks = UserStock.all.map{|us| us.stock} 
     render json: user_stocks
   end
 

@@ -8,10 +8,10 @@ class UsersController < ApplicationController
       password: params[:password]
     )
     if user.save
-      token = JWT.encode({user_id: user.id}, 'secret')
-      render json: {user: user, token: token}
-    else
-      render json: {errors: user.errors.full_messages}
+      # token = JWT.encode({user_id: user.id}, 'secret')
+      render json: {user: user}#, token: token}
+    # else
+    #   render json: {errors: user.errors.full_messages}
     end
   end
 

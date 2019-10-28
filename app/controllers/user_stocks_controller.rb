@@ -7,7 +7,7 @@ class UserStocksController < ApplicationController
 
   def create
     user_stock = UserStock.create({
-      user_id: session_user.id,
+      user_id: 3,
       stock_id: params[:stock_id]
     })
 
@@ -15,7 +15,7 @@ class UserStocksController < ApplicationController
   end
 
   def delete
-    user_stock = UserStock.find_by({user_id: session_user.id , stock_id:params[:stock_id]})
+    user_stock = UserStock.find_by({user_id: 3 , stock_id:params[:stock_id]})
     user_stock.destroy
 
     user_stocks = UserStock.all.map{|us| us.stock} 
